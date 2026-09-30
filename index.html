@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermas | Advanced Area-Specific Thermal Shelter Design</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS for Swipeable Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e24;
+            --primary-teal: #0d9488;
+            --primary-teal-hover: #0f766e;
+            --accent-mauve: #701a75;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-teal);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-mauve));
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 5% 100px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: -webkit-linear-gradient(45deg, var(--primary-teal), #a21caf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* App UI Carousel Section */
+        .carousel-section {
+            padding: 4rem 5%;
+            background-color: var(--bg-card);
+            text-align: center;
+        }
+
+        .carousel-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-section p {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* Swiper Container Adjustments */
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 280px; /* Mobile width ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--text-muted);
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--primary-teal);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-mauve);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-teal);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .swiper-slide { width: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-teal);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Thermas
+        </div>
+        <a href="#download" class="download-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download APK
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Design, Analyze, and Optimize Thermal Comfort</h1>
+        <p>Thermas is an industry-grade computational engine for area-specific thermal shelter analysis. Detect live climate conditions, run real-time environmental simulations, and establish optimized shelter parameters directly from your mobile device.</p>
+        <a href="#download" class="download-btn" style="padding: 1rem 2.5rem; font-size: 1.125rem;">
+            Get the Latest APK (v1.0)
+        </a>
+    </section>
+
+    <!-- UI Showcase (Swipeable Carousel) -->
+    <section class="carousel-section">
+        <h2>Experience the Interface</h2>
+        <p>Swipe to explore the professional analytics dashboard and environmental solvers.</p>
+        
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.18 PM (1).jpeg" alt="Thermas UI Screen 1"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.18 PM (2).jpeg" alt="Thermas UI Screen 2"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.18 PM.jpeg" alt="Thermas UI Screen 3"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.19 PM (1).jpeg" alt="Thermas UI Screen 4"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.19 PM (2).jpeg" alt="Thermas UI Screen 5"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.19 PM (3).jpeg" alt="Thermas UI Screen 6"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.19 PM (4).jpeg" alt="Thermas UI Screen 7"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.19 PM.jpeg" alt="Thermas UI Screen 8"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.20 PM (1).jpeg" alt="Thermas UI Screen 9"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.20 PM (2).jpeg" alt="Thermas UI Screen 10"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.20 PM (3).jpeg" alt="Thermas UI Screen 11"></div>
+                <div class="swiper-slide"><img src="WhatsApp Image 2026-09-30 at 2.26.20 PM.jpeg" alt="Thermas UI Screen 12"></div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-card">
+            <h3>Live GPS & Climate Sync</h3>
+            <p>Automatically fetch real-time latitude, longitude, outdoor air temperature, and relative humidity for hyper-accurate, region-specific calculations.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Advanced Solver</h3>
+            <p>Utilize embedded algorithms to determine optimal thermal resistance, material selection, and airflow requirements tailored to the detected environment.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Executive Dashboard</h3>
+            <p>Navigate a polished, dark-mode analytics interface designed for rapid field deployment, minimizing glare and maximizing battery life.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="download">
+        <p>&copy; 2026 Thermas Technologies. All rights reserved. Industrial Grade Thermal Solutions.</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            initialSlide: 1,
+            coverflowEffect: {
+                rotate: 15,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            keyboard: {
+                enabled: true,
+            },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            }
+        });
+    </script>
+</body>
+</html>
